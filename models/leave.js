@@ -8,7 +8,7 @@ const leaveSchema = new mongoose.Schema({
     },
     fromdate:{
         type: Date,
-        required: true
+        required: true,
     },
     todate:{
         type: Date,
@@ -22,8 +22,16 @@ const leaveSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'userdetails'
-    }
+    },
+    Status: {
+        type: String,
+        required: true,
+        default: 'pending'
+    },
     
+},
+{
+    timestamps: true
 })
 
 leaveSchema.methods.toJSON = function() {
